@@ -191,7 +191,7 @@ def main():
         final_map1 = clus_post(cogs,init_map,color)
         final_map2 = st_folium(flow_lines(filtered,final_map1,color),width=1000)
 
-            #setting up tuples for calculating distance
+        #setting up tuples for calculating distance
         filtered['origin'] = list(zip(filtered.Latitude,filtered.Longitude))
         filtered['destination'] = list(zip(filtered.Latitude_COG,filtered.Longitude_COG))
 
@@ -208,9 +208,9 @@ def main():
         filtered = (pd.merge(filtered,clus_pos,left_on='Cluster_y', right_on='Cluster'))
         filtered['euc_dist_y']=filtered.apply(lambda row: distance_from(row.origin,row.destination_y),axis=1)
         filtered['euc_dist_curr']=filtered.apply(lambda row: distance_from(row.origin,row.curr_destination),axis=1)
-        output = filtered[['Location Name','Destination City','Destination_pincode','Latitude','Longitude','Volume_x','Cluster_y','euc_dist_y']]
+        output = filtered[['Location Name','Destination City','Destination_pincode','Latitude','Longitude','Volume_x','Cluster_y','destination_y','euc_dist_y']]
 
-        output.rename({'Cluster_y': 'Clusters', 'euc_dist_y': 'stem_distance','Volume_x':'Volume'}, axis=1, inplace=True)
+        output.rename({'Cluster_y': 'Clusters', 'euc_dist_y': 'stem_distance','Volume_x':'Volume','destination_y':'recommended_hub_location'}, axis=1, inplace=True)
 
         mets = output.groupby(['Clusters']).agg({'Volume':'sum','stem_distance':'mean'}).reset_index()
         st.markdown('Final cluster locations and total volume served by those clusters with stem distance(i.e.:mean distance of each seller to cluster location)')
