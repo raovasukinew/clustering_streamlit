@@ -5,4 +5,8 @@ by calculating the transport costs/distance to each of the supply or demand loca
 
 The center of gravity is therefore the location giving the lowest total transport costs or distance.
 
+This web app uses streamlit library for creating this clustering tool on a platform like web.
+
+You can access the the app on this [link](https://raovasukinew-clustering-streamlit-app-2truot.streamlit.app/)
+
 
