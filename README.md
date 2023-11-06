@@ -9,4 +9,5 @@ This web app uses streamlit library for creating this clustering tool on a platf
 
 You can access the the app on this [link](https://raovasukinew-clustering-streamlit-app-2truot.streamlit.app/)
 
+![alt text](https://github.com/raovasukinew/clustering_streamlit/blob/main/streamlit-app.png)
 
